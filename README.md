@@ -56,7 +56,6 @@ Follow the steps below to get this project running on your local machine.
 
    ```aduino
    http://localhost:3000
-   
 
 ## 🧪 Usage
 
