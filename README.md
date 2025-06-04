@@ -37,19 +37,16 @@ Follow the steps below to get this project running on your local machine.
 
 2. Install dependencies:
 
-  ```bash
    bundle install
 
 3. Set up the database:
 
-  ```bash
    rails db:create
    rails db:migrate
    rails db:seed
 
 4. Start the server:
 
-  ```bash
    rails server
 
 5. Open your browser and navigate to:
