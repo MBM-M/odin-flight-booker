@@ -54,7 +54,7 @@ Follow the steps below to get this project running on your local machine.
 
 5. Open your browser and navigate to:
 
-  ```aduino
+   ```aduino
    http://localhost:3000
    
 
