@@ -7,3 +7,28 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+aaa = Airport.create!(code: "AAA")
+bbb = Airport.create!(code: "BBB")
+ccc = Airport.create!(code: "CCC")
+
+Flight.create!(
+  dep_airport: aaa,
+  arr_airport: bbb,
+  start_datetime: DateTime.now + 1.day,
+  flight_duration: 1
+)
+
+Flight.create!(
+  dep_airport: aaa,
+  arr_airport: ccc,
+  start_datetime: DateTime.now + 1.day,
+  flight_duration: 2
+)
+
+Flight.create!(
+  dep_airport: ccc,
+  arr_airport: aaa,
+  start_datetime: DateTime.now + 1.day,
+  flight_duration: 3
+)

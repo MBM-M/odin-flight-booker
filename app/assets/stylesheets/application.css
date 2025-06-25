@@ -8,3 +8,45 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+/* Style for the flight table */
+.flights-table {
+  width: 100%;
+  border-collapse: collapse;  /* Ensures borders don't overlap */
+  margin-top: 20px;
+}
+
+.flights-table th, .flights-table td {
+  padding: 15px;  /* Adds space around the text */
+  text-align: left;  /* Aligns the text to the left */
+  border-bottom: 1px solid #ddd;  /* Adds a light border for better readability */
+}
+
+.flights-table th {
+  background-color: #f2f2f2;  /* Light gray background for header */
+  font-weight: bold;
+}
+
+.flights-table tr:nth-child(even) {
+  background-color: #f9f9f9;  /* Alternate row colors for readability */
+}
+
+.flights-table td {
+  font-size: 14px;  /* Adjust font size for better readability */
+}
+
+/* Apply specific column width */
+.flights-table td:nth-child(1), .flights-table th:nth-child(1) {
+  width: 25%;
+}
+
+.flights-table td:nth-child(2), .flights-table th:nth-child(2) {
+  width: 25%;
+}
+
+.flights-table td:nth-child(3), .flights-table th:nth-child(3) {
+  width: 30%;
+}
+
+.flights-table td:nth-child(4), .flights-table th:nth-child(4) {
+  width: 20%;
+}
