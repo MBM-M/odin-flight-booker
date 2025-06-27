@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  arr_airport_id: 1
+  dep_airport_id: 1
+  start_datetime: 2025-06-04 16:53:37
+  flight_duration: 1
+
+two:
+  arr_airport_id: 1
+  dep_airport_id: 1
+  start_datetime: 2025-06-04 16:53:37
+  flight_duration: 1
