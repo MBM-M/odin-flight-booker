@@ -1,0 +1,45 @@
+<h2>Confirm Your Booking</h2>
+
+<p>
+  <strong>Flight:</strong>
+  <%= @booking.flight.dep_airport.code %> →
+  <%= @booking.flight.arr_airport.code %><br>
+  <strong>Date:</strong>
+  <%= @booking.flight.start_datetime.strftime("%B %d, %Y %I:%M %p") %>
+</p>
+
+<%= form_with model: @booking do |f| %>
+  <%= f.hidden_field :flight_id %>
+
+  <% @booking.passengers.each_with_index do |passenger, index| %>
+    <fieldset class="passenger-form">
+      <h3>Passenger <%= index + 1 %> Information</h3>
+
+      <div class="field">
+        <%= f.fields_for :passengers, passenger do |p| %>
+          <%= p.label :name, "Name" %>
+          <%= p.text_field :name, required: true %>
+          
+          <%= p.label :email, "Email" %>
+          <%= p.email_field :email, required: true %>
+        <% end %>
+      </div>
+
+      <hr>
+    </fieldset>
+  <% end %>
+
+  <%= f.submit "Book Flight" %>
+<% end %>
+
+<% if flash.now[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash.now[:alert] %>
+  </div>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>

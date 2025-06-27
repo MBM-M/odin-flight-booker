@@ -1,7 +1,6 @@
 <h1>Flights</h1>
 
 <%= form_with url: flights_path, method: :get do |form| %>
-
   <div>
     <%= form.label :departure_code, "Select Departure Airport" %>
     <%= form.select :departure_code, options_for_select(@airport.map { |ap| ap.code }) %>
@@ -27,26 +26,38 @@
 
 <% if @flights.any? %>
   <h2>Available Flights</h2>
-  <table class="flights-table">
-    <thead>
-      <tr>
-        <th>Departure Airport</th>
-        <th>Arrival Airport</th>
-        <th>Start Time</th>
-        <th>Duration</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @flights.each do |flight| %>
+
+  <%= form_with url: new_booking_path, method: :get do |f| %>
+    <%= f.hidden_field :num_passengers, value: params[:passengers] %>
+
+    <table class="flights-table">
+      <thead>
         <tr>
-          <td><%= flight.dep_airport.code %></td>
-          <td><%= flight.arr_airport.code %></td>
-          <td><%= flight.start_datetime.strftime('%B %d, %Y %H:%M') %></td>
-          <td><%= flight.flight_duration %></td>
+          <th>Select Flight</th>
+          <th>Departure Airport</th>
+          <th>Arrival Airport</th>
+          <th>Start Time</th>
+          <th>Duration</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @flights.each do |flight| %>
+          <tr>
+            <td>
+              <%= f.radio_button :flight_id, flight.id %>
+            </td>
+            <td><%= flight.dep_airport.code %></td>
+            <td><%= flight.arr_airport.code %></td>
+            <td><%= flight.start_datetime.strftime('%B %d, %Y %H:%M') %></td>
+            <td><%= flight.flight_duration %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= f.submit "Select Flight" %>
+  <% end %>
+
 <% else %>
   <p>No flights available for your search criteria.</p>
 <% end %>
